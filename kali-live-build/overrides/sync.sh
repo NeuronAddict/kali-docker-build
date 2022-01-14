@@ -12,4 +12,4 @@ fi
 
 echo "Override with profile ${profile}"
 
-cp -prv "/overrides/${profile}/"* /live-build-config/
+rsync -v -r -K -p "/overrides/${profile}/"* /live-build-config/
