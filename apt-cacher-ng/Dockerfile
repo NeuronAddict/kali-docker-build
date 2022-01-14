@@ -1,5 +1,7 @@
 FROM debian:stable-slim
 
+ARG UPSTREAM_APT_PROXY
+
 RUN apt update && apt install -y apt-cacher-ng
 
 COPY zzz_override.conf /etc/apt-cacher-ng/
