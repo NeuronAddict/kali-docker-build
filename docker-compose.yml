@@ -21,6 +21,7 @@ services:
     stdin_open: true
     depends_on:
       - apt-cacher-ng
+    privileged: true
     volumes:
       - ./kali-live-build/images:/live-build-config/images
       - ./kali-live-build/overrides:/overrides
