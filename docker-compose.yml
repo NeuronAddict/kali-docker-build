@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  kali-live-build:
+    build:
+      context: kali-live-build
+      args:
+        UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
+    volumes:
+      - ./kali-live-build/images:/live-build-config/images
+      - ./kali-live-build/live-chroot:/live-build-config/chroot
