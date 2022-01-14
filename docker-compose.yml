@@ -15,11 +15,13 @@ services:
       context: kali-live-build
       args:
         UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
+    environment:
+      - OVERRIDE_PROFILE
     tty: true
     stdin_open: true
     depends_on:
       - apt-cacher-ng
     volumes:
       - ./kali-live-build/images:/live-build-config/images
-      - ./kali-live-build/live-chroot:/live-build-config/chroot
+      - ./kali-live-build/overrides:/overrides
       - /proc:/proc
