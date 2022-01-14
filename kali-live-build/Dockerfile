@@ -3,7 +3,6 @@ FROM kalilinux/kali-rolling
 ARG UPSTREAM_APT_PROXY
 
 RUN apt-get update
-RUN echo ${UPSTREAM_APT_PROXY}
 RUN http_proxy=${UPSTREAM_APT_PROXY} apt-get install -y curl git live-build gettext cdebootstrap fdisk simple-cdd
 RUN git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /live-build-config
 
