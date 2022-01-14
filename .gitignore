@@ -1,4 +1,6 @@
 .idea/
 .env
-kali-live-build/images
-kali-live-build/simple-cdd-tmp
+kali-live-build/images/*
+kali-live-build/simple-cdd-tmp/*
+cache/*
+!.gitignore
