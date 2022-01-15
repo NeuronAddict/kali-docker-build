@@ -23,6 +23,7 @@ services:
       - /run.sh
     depends_on:
       - apt-cacher-ng
+    # For --installer, it work without the privileged flag, but build live build seems to need this
     privileged: true
     volumes:
       - ./kali-live-build/images:/live-build-config/images
