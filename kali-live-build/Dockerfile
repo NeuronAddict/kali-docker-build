@@ -12,4 +12,4 @@ COPY run.sh /run.sh
 
 RUN echo 'http://apt-cacher-ng:3142/kali.download/kali' > .mirror
 
-ENTRYPOINT []
+ENTRYPOINT ['/run.sh']

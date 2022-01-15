@@ -17,8 +17,6 @@ services:
         UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
     environment:
       - OVERRIDE_PROFILE
-    entrypoint:
-      - /run.sh
     depends_on:
       - apt-cacher-ng
     # For --installer, it work without the privileged flag, but build live build seems to need this
