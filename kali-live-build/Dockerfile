@@ -8,6 +8,8 @@ RUN git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /
 
 WORKDIR /live-build-config
 
+COPY run.sh /run.sh
+
 RUN echo 'http://apt-cacher-ng:3142/kali.download/kali' > .mirror
 
 ENTRYPOINT []
