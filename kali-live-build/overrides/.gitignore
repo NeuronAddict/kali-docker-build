@@ -1,3 +1,5 @@
 *
 !sync.sh
 !.gitignore
+!default/README.md
+!default
