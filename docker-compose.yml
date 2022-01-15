@@ -19,6 +19,8 @@ services:
       - OVERRIDE_PROFILE
     tty: true
     stdin_open: true
+    entrypoint:
+      - /run.sh
     depends_on:
       - apt-cacher-ng
     privileged: true
