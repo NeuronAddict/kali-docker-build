@@ -5,6 +5,7 @@ Docker containers to build kali images with local cache and optional second cach
 - https://www.kali.org/docs/development/dojo-mastering-live-build/
 - https://gitlab.com/kalilinux/build-scripts/live-build-config
 
+
 ## Quick start
 
 ```
@@ -21,8 +22,9 @@ For build an installer :
 docker-compose build --pull && docker-compose run kali-live-build --verbose --installer
 ```
 
-Your images are sorted on the 'images' folder.
+Your images are stored on the 'images' folder.
 Cache is stored on cache folder. Content can safely be removed (but subsequent builds will be longer). 
+
 
 ## Customize build with profiles
 
@@ -31,18 +33,41 @@ For example, a profile for your red team config and another for forensic.
 
 All files in overrides/${profile}/ will override files in the live-build-config repo before build.
 
-you can choose a profile with the variable OVERRIDE_PROFILE. You can configure it on .env file
+You can choose a profile with the variable OVERRIDE_PROFILE. You can configure it on .env file
 
 ex: to override file kali-config/variant-default/package-lists/kali.list.chroot on profile default, use the following structure:
 
 overrides/default/kali-config/variant-default/package-lists/kali.list.chroot:
 ```
 # this will replace the file kali-config/variant-default/package-lists/kali.list.chroot
+# Live image
+# You always want these:
+kali-linux-core
+kali-desktop-live
+
+# Metapackages
+# You can customize the set of Kali metapackages (groups of tools) to install
+# For the complete list see: https://tools.kali.org/kali-metapackages
+#kali-linux-core
+kali-tools-top10
+#kali-linux-default
+#kali-linux-large
+#kali-linux-everything
+
+# Graphical desktop
+kali-desktop-xfce
+
+# Kali applications
+#<package>
 ```
 
 There is a profile default (in default folder) that can be modified.
 
-Advice : don't commit files inside a copy of this repo, you will loose changes on pull.
+
+## checkout repo config
+
+Advice : don't commit profiles files inside a copy of this repo, you will loose changes on pull.
+
 Commit your profile folder and clone it inside overrides folder.
 
 ex:
@@ -55,7 +80,7 @@ docker-compose build --pull
 docker-compose run kali-live-build --verbose
 ```
 
-Now, you can upgrade this repo and the config independently :
+Now, you can upgrade the kali-live-build repo and the config independently:
 
 ```
 git pull # update this repo for upgrades
