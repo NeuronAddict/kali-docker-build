@@ -1,9 +1,0 @@
-cache/
-kali-live-build/images/
-kali-live-build/overrides/
-.gitignore
-.git/
-*.iml
-.idea/
-.env
-README.md
