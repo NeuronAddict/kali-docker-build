@@ -17,8 +17,6 @@ services:
         UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
     environment:
       - OVERRIDE_PROFILE
-    tty: true
-    stdin_open: true
     entrypoint:
       - /run.sh
     depends_on:
