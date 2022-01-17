@@ -1,9 +1,13 @@
 FROM kalilinux/kali-rolling
 
-ARG UPSTREAM_APT_PROXY
+ARG UPSTREAM_PROXY
 
-RUN apt-get update
-RUN http_proxy=${UPSTREAM_APT_PROXY} apt-get install -y curl git live-build gettext cdebootstrap fdisk simple-cdd
+RUN export http_proxy=${UPSTREAM_PROXY} \
+    && apt-get update \
+    && apt-get install -y curl git live-build gettext cdebootstrap fdisk simple-cdd\
+    && unset http_proxy
+
+RUN git config --global http.proxy ${UPSTREAM_PROXY} || true # TODO: can mask another error
 RUN git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git /live-build-config
 
 WORKDIR /live-build-config
