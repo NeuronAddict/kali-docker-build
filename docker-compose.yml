@@ -6,7 +6,7 @@ services:
     build:
       context: apt-cacher-ng
       args:
-        UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
+        UPSTREAM_PROXY: ${UPSTREAM_PROXY}
     volumes:
       - ./cache:/var/cache/apt-cacher-ng:rw
 
@@ -14,7 +14,7 @@ services:
     build:
       context: kali-live-build
       args:
-        UPSTREAM_APT_PROXY: ${UPSTREAM_APT_PROXY}
+        UPSTREAM_PROXY: ${UPSTREAM_PROXY}
     environment:
       - OVERRIDE_PROFILE
     depends_on:

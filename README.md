@@ -88,16 +88,15 @@ cd overrides/kali-build-example-profile
 git pull # now, update the profile (or your profile)
 ```
 
-## Double cache
-
-You have a cache (on folder cache) that populate packages on first build.
-You can use a second cache (for example, a server in your local network) in addition to the local cache.
+## Double cache or upstream proxy
 
 For use a second proxy, set it in .env:
 
 ```
-UPSTREAM_APT_PROXY=http://your_proxy:3142/
+UPSTREAM_PROXY=http://your_proxy:port/
 ```
+
+This proxy can be an apt cache proxy too (squid, apt-cacher-ng) or just your organisation proxy.
 
 see apt-cacher-ng manual for help: https://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
 
